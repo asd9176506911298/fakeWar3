@@ -8,7 +8,7 @@
 #include <filesystem>
 #include <iostream>
 #include <locale>
-
+#include <cstdlib>
 struct res{
     int x;
     int y;
@@ -63,7 +63,11 @@ void fitWindowToMonitor(HWND hWnd) {
 
     GetWindowRect(hWnd, &rc);
 
-    if (config.resolution == (res){-1, -1}) {
+    res re;
+    re.x = -1;
+    re.y = -1;
+
+    if (config.resolution == re) {
         hMonitor = MonitorFromWindow(hWnd, MONITOR_DEFAULTTONULL);
         if (hMonitor) {
             mi.cbSize = sizeof(mi);
@@ -100,7 +104,11 @@ void setUpGameWindow() {
     if (config.makeBorderless)
         setBorderlessWindowStyle(hWnd);
 
-    if (config.makeBorderless || config.resolution != (res){-1, -1})
+    res re;
+    re.x = -1;
+    re.y = -1;
+
+    if (config.makeBorderless || config.resolution != re)
         fitWindowToMonitor(hWnd);
 }
 
@@ -175,8 +183,8 @@ void parseValue(const identifiers identifier, const std::string& value) {
             std::string number;
             if (index != std::string::npos) {
                 try {
-                    config.resolution.x = std::stoi(value.substr(0, index));
-                    config.resolution.y = std::stoi(value.substr(index + 1));
+                    config.resolution.x = std::atoi(value.substr(0, index).c_str());
+                    config.resolution.y = std::atoi(value.substr(index + 1).c_str());
                     return;
                 }
                 catch (...) { }
