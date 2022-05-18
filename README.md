@@ -1,5 +1,7 @@
 # FakeWar3
 
+Video Tutorial:https://youtu.be/IaIzdasSuBc
+
 Used to bypass around *GameRanger* limitation of not being able to launch *Warcraft III* in windowed mode.
 
 To run *Warcraft III* in windowed mode you must pass the `-window` argument to the game, but *GameRanger* does not have an option for that. The solution was to take a program that requires no arguments, but launches the game in windowed mode.
