@@ -1,6 +1,6 @@
 # FakeWar3
 
-Video Tutorial:.
+Video Tutorial:
 https://youtu.be/IaIzdasSuBc
 
 Used to bypass around *GameRanger* limitation of not being able to launch *Warcraft III* in windowed mode.
